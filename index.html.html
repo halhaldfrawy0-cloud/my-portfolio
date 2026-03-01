@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hala Mahmoud | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-light: #a78bfa;
+            --bg-dark: #030712;
+            --card-bg: #111827;
+            --text-white: #ffffff;
+            --text-gray: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-white); margin: 0; display: flex; min-height: 100vh; }
+
+        /* --- Sidebar التفاعلي --- */
+        .sidebar {
+            width: 350px; height: 100vh; position: fixed; left: 0; top: 0;
+            background: var(--card-bg); border-right: 1px solid var(--border-color);
+            padding: 40px 30px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .img-container {
+            width: 160px; height: 160px; border-radius: 30px; border: 3px solid var(--primary);
+            margin: 0 auto 20px; overflow: hidden; background: #1a1f2e;
+            transition: all 0.5s ease;
+        }
+        .img-container:hover { transform: scale(1.05) rotate(3deg); box-shadow: 0 0 20px var(--primary); }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        .sidebar h1 { font-size: 1.5rem; margin: 10px 0; color: white; }
+        .sidebar .subtitle { color: var(--primary); font-weight: 700; font-size: 0.85rem; margin-bottom: 25px; letter-spacing: 1px; }
+
+        .info-box {
+            width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; 
+            font-size: 0.8rem; transition: all 0.3s ease; cursor: pointer; text-decoration: none; color: white;
+        }
+        .info-box:hover { background: rgba(139, 92, 246, 0.1); border-color: var(--primary); transform: translateX(8px); }
+        .info-box i { color: var(--primary); }
+
+        .social-link {
+            color: var(--text-gray); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: inline-block; font-size: 1.6rem;
+        }
+        .social-link:hover { color: var(--primary); transform: translateY(-5px) scale(1.3); }
+
+        /* --- Main Content Section --- */
+        .main-content { margin-left: 350px; flex: 1; padding: 50px; box-sizing: border-box; }
+
+        .section-card {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: 25px; padding: 35px; margin-bottom: 30px; transition: 0.4s;
+        }
+        .section-card:hover { border-color: rgba(139, 92, 246, 0.4); }
+        .section-card h2 { color: var(--primary); margin-top: 0; font-size: 1.8rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
+        /* تحسين نص الـ About */
+        .about-text { line-height: 1.8; color: var(--text-gray); font-size: 1.05rem; }
+        .highlight { color: var(--text-white); font-weight: 600; border-bottom: 1px solid var(--primary); }
+
+        /* Projects Grid */
+        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .project-item {
+            background: #030712; padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+        .project-item:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .project-item i { font-size: 2rem; margin-bottom: 15px; display: block; }
+
+        /* Skills Tags */
+        .skill-tag {
+            background: #1f2937; padding: 10px 18px; border-radius: 10px; margin: 5px; 
+            display: inline-block; font-size: 0.85rem; border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+        .skill-tag:hover { background: var(--primary); transform: scale(1.1); }
+
+        /* Contact Form */
+        input, textarea { width: 100%; background: #030712; border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; color: white; margin-bottom: 15px; transition: 0.3s; font-family: inherit; }
+        input:focus { border-color: var(--primary); outline: none; }
+        .send-btn { background: var(--primary); color: white; border: none; padding: 16px 35px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.4s; width: 100%; }
+        .send-btn:hover { background: var(--primary-light); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3); }
+
+        @media (max-width: 1000px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; } .main-content { margin-left: 0; padding: 20px; } .projects-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="img-container">
+            <img src="image_521f5a.jpg.jpeg" alt="Hala Eldefrawy">
+        </div>
+        <h1>Hala Eldefrawy</h1>
+        <div class="subtitle">SOFTWARE ENGINEER</div>
+
+        <a href="tel:01012721104" class="info-box"><i class="fas fa-phone"></i> 01012721104</a>
+        <a href="mailto:halhaldfrawy0@gmail.com" class="info-box"><i class="fas fa-envelope"></i> halhaldfrawy0@gmail.com</a>
+        <div class="info-box"><i class="fas fa-map-marker-alt"></i> Beheira, Egypt</div>
+
+        <div style="margin-top: 30px; display: flex; gap: 25px;">
+            <a href="https://www.linkedin.com/in/halaeldefrawy2005" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/halhaldfrawy0-cloud" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section class="section-card">
+            <h2><i class="fas fa-user"></i> About Me</h2>
+            <div class="about-text">
+                I am a passionate <span class="highlight">Software Engineering Student</span> at Borg Al-Arab Technological University. 
+                My focus lies in building seamless, user-centric mobile applications using <span class="highlight">Flutter</span>. 
+                I thrive on solving complex problems, a journey that led me to win <span class="highlight">1st Place</span> in the University Innovation Competition for my Smart EV System.
+            </div>
+            
+            <div style="margin-top: 25px;">
+                <div class="skill-tag">Flutter / Dart</div>
+                <div class="skill-tag">Java (OOP)</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">C++</div>
+                <div class="skill-tag">Arduino</div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2><i class="fas fa-project-diagram"></i> Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <i class="fas fa-car-side" style="color: #fbbf24;"></i>
+                    <h4>Smart EV System</h4>
+                    <p>Award-winning IoT-based system for electric vehicles with smart monitoring.</p>
+                </div>
+                <div class="project-item">
+                    <i class="fas fa-university" style="color: #34d399;"></i>
+                    <h4>University Portal</h4>
+                    <p>A secure academic gateway for students and administration management.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2><i class="fas fa-paper-plane"></i> Let's Connect</h2>
+            <form action="https://formspree.io/f/xvzbnkgr" method="POST">
+                <div style="display: flex; gap: 15px; margin-bottom: 5px;">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <textarea name="message" rows="4" placeholder="How can I help you today?" required></textarea>
+                <button type="submit" class="send-btn">Send Message <i class="fas fa-arrow-right"></i></button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
